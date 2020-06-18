@@ -164,100 +164,106 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
 
-    function AppComponent_ng_template_18_Template(rf, ctx) {
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+    function AppComponent_div_18_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 15);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h2", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 16);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " Log In ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "h2", 17);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 17);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 18);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " \xA0 Log in using Facebook ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, " Log In ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 18);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "img", 19);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 19);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "img", 20);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " \xA0 Log in using Strava ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " \xA0 Log in using Facebook ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 20);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Or log in with email");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "img", 21);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 22);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 23);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "span", 24);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "email");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, " \xA0 Log in using Strava ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "p", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Or log in with email");
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "input", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 23);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "span", 25);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 23);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "span", 24);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "password");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "email");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "input", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "input", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 28);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 27);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](25, "input", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26, " Remember me ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "span", 25);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "password");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "br");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "button", 30);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Log in");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "input", 28);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 29);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "input", 30);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, " Remember me ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "br");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "button", 31);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Log in");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](29, "br");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](30, "br");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](31, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "a", 32);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "a", 31);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, " Forgot your password? ");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, " Forgot your password? ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -267,95 +273,101 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function AppComponent_ng_template_20_Template(rf, ctx) {
+    function AppComponent_div_19_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 14);
+        var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 33);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h2", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("focusout", function AppComponent_div_19_Template_div_focusout_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r2.closeModals();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 16);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h2", 17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " Sing Up ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 18);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 19);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " \xA0 Sign up with Facebook ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "button", 20);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "img", 21);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 19);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "img", 20);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " \xA0 Sign up with Strava ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " \xA0 Sign up with Strava ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 22);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Or sign up with your email address");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Or sign up with your email address");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 34);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "span", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "span", 25);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "username");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "username");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "input", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "input", 35);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 27);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "span", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "span", 25);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "email");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "input", 25);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 26);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 23);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "span", 24);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "password");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "email");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](28, "input", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "input", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "button", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 27);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Sign up");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 24);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "span", 25);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "password");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "input", 28);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "button", 36);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Sign up");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -373,22 +385,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.modalService = modalService;
         this.title = 'asphalt-leader';
-        this.closeResult = '';
-      }
+        this.showSingupModal = false;
+        this.showLoginModal = false;
+      } // openLogin(content) {
+
 
       _createClass(AppComponent, [{
         key: "openLogin",
-        value: function openLogin(content) {
-          this.modalService.open(content, {
-            ariaLabelledBy: 'modal-basic-title'
-          });
-        }
+        value: function openLogin() {
+          var _this = this;
+
+          console.log("opening login");
+          setTimeout(function () {
+            _this.showSingupModal = false;
+            _this.showLoginModal = true;
+          }, 100); // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+        } // openSingup(signup){
+
       }, {
         key: "openSingup",
-        value: function openSingup(signup) {
-          this.modalService.open(signup, {
-            ariaLabelledBy: 'modal-basic-title'
-          });
+        value: function openSingup() {
+          var _this2 = this;
+
+          console.log("opening signup");
+          setTimeout(function () {
+            _this2.showLoginModal = false;
+            _this2.showSingupModal = true;
+          }, 100); // this.modalService.open(signup, {ariaLabelledBy: 'modal-basic-title'});
+        }
+      }, {
+        key: "closeModals",
+        value: function closeModals() {
+          console.log("closing");
+          this.showLoginModal = false;
+          this.showSingupModal = false;
         }
       }]);
 
@@ -402,74 +432,68 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
-      decls: 22,
-      vars: 0,
-      consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "transparent-light", "top"], ["href", "#", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarText", "aria-controls", "navbarText", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarText", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "mr-auto"], [1, "nav-item", "active"], [1, "nav-item"], [1, "navbar-text"], [1, "nav-link", 3, "click"], [1, "sr-only"], ["type", "button", 1, "btn", "btn-outline-info", 3, "click"], ["content", ""], ["signup", ""], ["id", "modal-container"], ["id", "auth-modal"], [1, "mb-5"], ["type", "button", 1, "btn", "btn-primary", "login-btn", "mt-4"], ["src", "../assets/logo-fb.jpg"], ["type", "button", "id", "strava-btn", 1, "btn", "btn-warning", "login-btn"], ["src", "../assets/logo-strava.jpg"], [1, "m-5"], [1, "input-group", "flex-nowrap", "mt-2"], [1, "input-group-prepend"], ["id", "addon-wrapping", 1, "input-group-text"], ["type", "text", "placeholder", "yourEmail@yahoo.com", "aria-describedby", "addon-wrapping", 1, "form-control"], [1, "input-group", "flex-nowrap", "mt-3"], ["type", "password", "placeholder", "password", "aria-describedby", "addon-wrapping", 1, "form-control"], [1, "mt-3", 2, "float", "left"], ["type", "checkbox", "name", "remember-me"], ["type", "button", 1, "btn", "btn-light", "mt-4", "login-btn", 2, "color", "black"], ["href", ""], [1, "input-group", "flex-nowrap", "mt-1"], ["type", "text", "placeholder", "yourUsername", "aria-describedby", "addon-wrapping", 1, "form-control"], ["type", "button", 1, "btn", "btn-light", "mt-5", "mb-3", "login-btn", 2, "color", "black"]],
+      decls: 20,
+      vars: 2,
+      consts: [[3, "click"], [1, "navbar", "navbar-expand-lg", "navbar-dark", "transparent-light", "top"], ["href", "#", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarText", "aria-controls", "navbarText", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarText", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "mr-auto"], [1, "nav-item", "active"], [1, "nav-item"], [1, "navbar-text"], [1, "nav-link", 3, "click"], [1, "sr-only"], ["type", "button", 1, "btn", "btn-outline-info", 3, "click"], [4, "ngIf"], [3, "focusout", 4, "ngIf"], ["id", "modal-container"], ["id", "auth-modal"], [1, "mb-5"], ["type", "button", 1, "btn", "btn-primary", "login-btn", "mt-4"], ["src", "../assets/logo-fb.jpg"], ["type", "button", "id", "strava-btn", 1, "btn", "btn-warning", "login-btn", "mt-3"], ["src", "../assets/logo-strava.jpg"], [1, "m-5"], [1, "input-group", "flex-nowrap", "mt-2"], [1, "input-group-prepend"], ["id", "addon-wrapping", 1, "input-group-text"], ["type", "text", "placeholder", "yourEmail@yahoo.com", "aria-describedby", "addon-wrapping", 1, "form-control"], [1, "input-group", "flex-nowrap", "mt-3"], ["type", "password", "placeholder", "password", "aria-describedby", "addon-wrapping", 1, "form-control"], [1, "mt-3", 2, "float", "left"], ["type", "checkbox", "name", "remember-me"], ["type", "button", 1, "btn", "btn-light", "mt-4", "login-btn", 2, "color", "black"], ["href", ""], [3, "focusout"], [1, "input-group", "flex-nowrap", "mt-1"], ["type", "text", "placeholder", "yourUsername", "aria-describedby", "addon-wrapping", 1, "form-control"], ["type", "button", 1, "btn", "btn-light", "mt-5", "mb-3", "login-btn", 2, "color", "black"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
-          var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "Header", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "Header");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_Header_click_0_listener() {
+            return ctx.closeModals();
+          });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "nav", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "nav", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Asphalt Leader");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "span", 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "ul", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "li", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "li", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "span", 4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "a", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "ul", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "li", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "li", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "a", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_a_click_11_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
-
-            var _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](19);
-
-            return ctx.openLogin(_r0);
+            return ctx.openLogin();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "LOG IN ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "span", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "span", 11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "button", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "button", 12);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_button_click_14_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
-
-            var _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](21);
-
-            return ctx.openSingup(_r2);
+            return ctx.openSingup();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "SIGN UP");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "span", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "span", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -479,13 +503,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "router-outlet");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, AppComponent_ng_template_18_Template, 34, 0, "ng-template", null, 12, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, AppComponent_div_18_Template, 33, 0, "div", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, AppComponent_ng_template_20_Template, 31, 0, "ng-template", null, 13, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, AppComponent_div_19_Template, 29, 0, "div", 14);
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showLoginModal);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showSingupModal);
         }
       },
-      directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbNavbar"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"]],
-      styles: [".top[_ngcontent-%COMP%] {\n  z-index: 100;\n}\n\n.transparent-light[_ngcontent-%COMP%] {\n  background-color: rgba(202, 202, 202, 0.137);\n}\n\n.navbar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-size: 25px;\n}\n\n.navbar-text[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-size: 18px;\n  cursor: pointer;\n}\n\n#modal-container[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 50%;\n  top: 10vh;\n}\n\n#auth-modal[_ngcontent-%COMP%] {\n  position: relative;\n  left: -50%;\n  background-color: rgba(14, 14, 14, 0.932);\n  color: aliceblue;\n  font-size: large;\n  font-weight: 100;\n  text-align: center;\n  padding: 40px 60px 40px 60px;\n  border-radius: 20px;\n  width: 400px;\n}\n\n#auth-modal[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  background-color: rgba(14, 14, 14, 0.87);\n  color: aliceblue;\n}\n\n#auth-modal[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  background-color: rgba(255, 255, 255, 0.247);\n  color: aliceblue;\n}\n\n#strava-btn[_ngcontent-%COMP%] {\n  background-color: #fc5200;\n  border-color: #fc5200;\n}\n\n.login-btn[_ngcontent-%COMP%] {\n  width: 240px;\n  color: aliceblue;\n  padding: 5px;\n}\n\n#auth-modal[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  vertical-align: middle;\n  width: 30px;\n  border-radius: 4px;\n}\n\n.btn-light[_ngcontent-%COMP%] {\n  background-color: #ffffffc9;\n}\n\n.modal-content[_ngcontent-%COMP%] {\n  background-color: rgba(14, 14, 14, 0);\n}\n\n@media (max-height: 750px) {\n  #modal-container[_ngcontent-%COMP%] {\n    position: absolute;\n    left: 50%;\n    top: 0vh;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvRDpcXHdvcmtzcGFjZXNcXGFuZ3VsYXJcXGxpY2VudGFcXGFzcGhhbGYtbGVhZGVyXFxhc3BoYWx0LWxlYWRlci9zcmNcXGFwcFxcYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0FDQ0o7O0FERUE7RUFDSSw0Q0FBQTtBQ0NKOztBREVBO0VBQ0ksZUFBQTtBQ0NKOztBREVBO0VBQ0ksZUFBQTtFQUNBLGVBQUE7QUNDSjs7QURFQTtFQUNJLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7QUNDSjs7QURFQTtFQUNJLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLHlDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSw0QkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtBQ0NKOztBREVBO0VBQ0ksd0NBQUE7RUFDQSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksNENBQUE7RUFDQSxnQkFBQTtBQ0NKOztBREVBO0VBQ0kseUJBQUE7RUFDQSxxQkFBQTtBQ0NKOztBREVBO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQ0NKOztBREVBO0VBQ0ksc0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNDSjs7QURFQTtFQUNJLDJCQUFBO0FDQ0o7O0FERUE7RUFDSSxxQ0FBQTtBQ0NKOztBREdBO0VBQ0k7SUFDSSxrQkFBQTtJQUNBLFNBQUE7SUFDQSxRQUFBO0VDQU47QUFDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50b3Age1xyXG4gICAgei1pbmRleDogMTAwO1xyXG59XHJcblxyXG4udHJhbnNwYXJlbnQtbGlnaHR7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIwMiwgMjAyLCAyMDIsIDAuMTM3KTtcclxufVxyXG5cclxuLm5hdmJhciBhIHtcclxuICAgIGZvbnQtc2l6ZTogMjVweDtcclxufVxyXG5cclxuLm5hdmJhci10ZXh0IGEge1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4jbW9kYWwtY29udGFpbmVye1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlOyBcclxuICAgIGxlZnQ6IDUwJTtcclxuICAgIHRvcDogMTB2aDtcclxufVxyXG5cclxuI2F1dGgtbW9kYWx7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7IFxyXG4gICAgbGVmdDogLTUwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMC45MzIpO1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcclxuICAgIGZvbnQtc2l6ZTogbGFyZ2U7XHJcbiAgICBmb250LXdlaWdodDogMTAwOyBcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmc6IDQwcHggNjBweCA0MHB4IDYwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiAyMHB4O1xyXG4gICAgd2lkdGg6IDQwMHB4O1xyXG59XHJcbiBcclxuI2F1dGgtbW9kYWwgaW5wdXR7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE0LCAxNCwgMTQsIDAuODcpO1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcclxufVxyXG5cclxuI2F1dGgtbW9kYWwgc3BhbiB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMjQ3KTtcclxuICAgIGNvbG9yOiBhbGljZWJsdWU7XHJcbn1cclxuXHJcbiNzdHJhdmEtYnRue1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZjNTIwMDtcclxuICAgIGJvcmRlci1jb2xvcjogI2ZjNTIwMDtcclxufVxyXG5cclxuLmxvZ2luLWJ0bntcclxuICAgIHdpZHRoOiAyNDBweDtcclxuICAgIGNvbG9yOiBhbGljZWJsdWU7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbn1cclxuXHJcbiNhdXRoLW1vZGFsIGltZyB7XHJcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG4gICAgd2lkdGg6MzBweDsgXHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7IFxyXG59XHJcblxyXG4uYnRuLWxpZ2h0e1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZmM5XHJcbn1cclxuXHJcbi5tb2RhbC1jb250ZW50e1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNCwgMTQsIDE0LCAwKVxyXG59XHJcblxyXG5cclxuQG1lZGlhIChtYXgtaGVpZ2h0Ojc1MHB4KSB7XHJcbiAgICAjbW9kYWwtY29udGFpbmVye1xyXG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsgXHJcbiAgICAgICAgbGVmdDogNTAlO1xyXG4gICAgICAgIHRvcDogMHZoO1xyXG4gICAgfVxyXG59XHJcbiAiLCIudG9wIHtcbiAgei1pbmRleDogMTAwO1xufVxuXG4udHJhbnNwYXJlbnQtbGlnaHQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDIwMiwgMjAyLCAyMDIsIDAuMTM3KTtcbn1cblxuLm5hdmJhciBhIHtcbiAgZm9udC1zaXplOiAyNXB4O1xufVxuXG4ubmF2YmFyLXRleHQgYSB7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4jbW9kYWwtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiA1MCU7XG4gIHRvcDogMTB2aDtcbn1cblxuI2F1dGgtbW9kYWwge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGxlZnQ6IC01MCU7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMC45MzIpO1xuICBjb2xvcjogYWxpY2VibHVlO1xuICBmb250LXNpemU6IGxhcmdlO1xuICBmb250LXdlaWdodDogMTAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDQwcHggNjBweCA0MHB4IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gIHdpZHRoOiA0MDBweDtcbn1cblxuI2F1dGgtbW9kYWwgaW5wdXQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE0LCAxNCwgMTQsIDAuODcpO1xuICBjb2xvcjogYWxpY2VibHVlO1xufVxuXG4jYXV0aC1tb2RhbCBzcGFuIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjI0Nyk7XG4gIGNvbG9yOiBhbGljZWJsdWU7XG59XG5cbiNzdHJhdmEtYnRuIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZjNTIwMDtcbiAgYm9yZGVyLWNvbG9yOiAjZmM1MjAwO1xufVxuXG4ubG9naW4tYnRuIHtcbiAgd2lkdGg6IDI0MHB4O1xuICBjb2xvcjogYWxpY2VibHVlO1xuICBwYWRkaW5nOiA1cHg7XG59XG5cbiNhdXRoLW1vZGFsIGltZyB7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIHdpZHRoOiAzMHB4O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG5cbi5idG4tbGlnaHQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmYzk7XG59XG5cbi5tb2RhbC1jb250ZW50IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNCwgMTQsIDE0LCAwKTtcbn1cblxuQG1lZGlhIChtYXgtaGVpZ2h0OiA3NTBweCkge1xuICAjbW9kYWwtY29udGFpbmVyIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRvcDogMHZoO1xuICB9XG59Il19 */"]
+      directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbNavbar"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]],
+      styles: [".top[_ngcontent-%COMP%] {\n  z-index: 100;\n}\n\n.transparent-light[_ngcontent-%COMP%] {\n  background-color: rgba(202, 202, 202, 0.137);\n}\n\n.navbar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-size: 25px;\n}\n\n.navbar-text[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-size: 18px;\n  cursor: pointer;\n}\n\n#auth-modal[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  margin-left: auto;\n  margin-right: auto;\n  background-color: rgba(14, 14, 14, 0.932);\n  color: aliceblue;\n  font-size: large;\n  font-weight: 100;\n  text-align: center;\n  padding: 40px 60px 40px 60px;\n  border-radius: 20px;\n  width: 400px;\n  -webkit-animation-name: move-up;\n          animation-name: move-up;\n  -webkit-animation-duration: 0.8s;\n          animation-duration: 0.8s;\n  top: 105px;\n}\n\n@-webkit-keyframes move-up {\n  from {\n    top: 110vh;\n  }\n  to {\n    top: 105px;\n  }\n}\n\n@keyframes move-up {\n  from {\n    top: 110vh;\n  }\n  to {\n    top: 105px;\n  }\n}\n\n#auth-modal[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  background-color: rgba(14, 14, 14, 0.87);\n  color: aliceblue;\n}\n\n#auth-modal[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  background-color: rgba(255, 255, 255, 0.247);\n  color: aliceblue;\n}\n\n#strava-btn[_ngcontent-%COMP%] {\n  background-color: #fc5200;\n  border-color: #fc5200;\n}\n\n.login-btn[_ngcontent-%COMP%] {\n  width: 240px;\n  color: aliceblue;\n  padding: 5px;\n  position: relative;\n}\n\n#auth-modal[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 3px;\n  top: 3px;\n  vertical-align: middle;\n  width: 30px;\n  border-radius: 4px;\n}\n\n.btn-light[_ngcontent-%COMP%] {\n  background-color: #ffffffc9;\n}\n\n.modal-content[_ngcontent-%COMP%] {\n  background-color: rgba(14, 14, 14, 0);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvRDpcXHdvcmtzcGFjZXNcXGFuZ3VsYXJcXGxpY2VudGFcXGFzcGhhbGYtbGVhZGVyXFxhc3BoYWx0LWxlYWRlci9zcmNcXGFwcFxcYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0FDQ0o7O0FERUE7RUFDSSw0Q0FBQTtBQ0NKOztBREVBO0VBQ0ksZUFBQTtBQ0NKOztBREVBO0VBQ0ksZUFBQTtFQUNBLGVBQUE7QUNDSjs7QURFQTtFQUNJLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EseUNBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLDRCQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0EsK0JBQUE7VUFBQSx1QkFBQTtFQUNBLGdDQUFBO1VBQUEsd0JBQUE7RUFDQSxVQUFBO0FDQ0o7O0FER0E7RUFDSTtJQUFPLFVBQUE7RUNDVDtFREFFO0lBQUssVUFBQTtFQ0dQO0FBQ0Y7O0FETkE7RUFDSTtJQUFPLFVBQUE7RUNDVDtFREFFO0lBQUssVUFBQTtFQ0dQO0FBQ0Y7O0FEREE7RUFDSSx3Q0FBQTtFQUNBLGdCQUFBO0FDR0o7O0FEQUE7RUFDSSw0Q0FBQTtFQUNBLGdCQUFBO0FDR0o7O0FEQUE7RUFDSSx5QkFBQTtFQUNBLHFCQUFBO0FDR0o7O0FEQUE7RUFDSSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNHSjs7QURBQTtFQUNJLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFFBQUE7RUFDQSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0dKOztBREFBO0VBQ0ksMkJBQUE7QUNHSjs7QURBQTtFQUNJLHFDQUFBO0FDR0oiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudG9wIHtcclxuICAgIHotaW5kZXg6IDEwMDtcclxufVxyXG5cclxuLnRyYW5zcGFyZW50LWxpZ2h0e1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMDIsIDIwMiwgMjAyLCAwLjEzNyk7XHJcbn1cclxuXHJcbi5uYXZiYXIgYSB7XHJcbiAgICBmb250LXNpemU6IDI1cHg7XHJcbn1cclxuXHJcbi5uYXZiYXItdGV4dCBhIHtcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4gXHJcbiNhdXRoLW1vZGFse1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlOyBcclxuICAgIGxlZnQ6IDA7IFxyXG4gICAgcmlnaHQ6IDA7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bzsgXHJcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE0LCAxNCwgMTQsIDAuOTMyKTtcclxuICAgIGNvbG9yOiBhbGljZWJsdWU7XHJcbiAgICBmb250LXNpemU6IGxhcmdlO1xyXG4gICAgZm9udC13ZWlnaHQ6IDEwMDsgXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBwYWRkaW5nOiA0MHB4IDYwcHggNDBweCA2MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjBweDtcclxuICAgIHdpZHRoOiA0MDBweDtcclxuICAgIGFuaW1hdGlvbi1uYW1lOiBtb3ZlLXVwO1xyXG4gICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAuOHM7IFxyXG4gICAgdG9wOiAxMDVweDtcclxufVxyXG5cclxuXHJcbkBrZXlmcmFtZXMgbW92ZS11cCB7XHJcbiAgICBmcm9tIHsgdG9wOiAxMTB2aDsgfVxyXG4gICAgdG8geyB0b3A6IDEwNXB4OyB9XHJcbn1cclxuIFxyXG4jYXV0aC1tb2RhbCBpbnB1dHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMC44Nyk7XHJcbiAgICBjb2xvcjogYWxpY2VibHVlO1xyXG59XHJcblxyXG4jYXV0aC1tb2RhbCBzcGFuIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNDcpO1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcclxufVxyXG5cclxuI3N0cmF2YS1idG57XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmM1MjAwO1xyXG4gICAgYm9yZGVyLWNvbG9yOiAjZmM1MjAwO1xyXG59XHJcblxyXG4ubG9naW4tYnRue1xyXG4gICAgd2lkdGg6IDI0MHB4O1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuI2F1dGgtbW9kYWwgaW1nIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDNweDtcclxuICAgIHRvcDogM3B4O1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICAgIHdpZHRoOjMwcHg7IFxyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4OyBcclxufVxyXG5cclxuLmJ0bi1saWdodHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmZjOVxyXG59XHJcblxyXG4ubW9kYWwtY29udGVudHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMClcclxufVxyXG5cclxuIiwiLnRvcCB7XG4gIHotaW5kZXg6IDEwMDtcbn1cblxuLnRyYW5zcGFyZW50LWxpZ2h0IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMDIsIDIwMiwgMjAyLCAwLjEzNyk7XG59XG5cbi5uYXZiYXIgYSB7XG4gIGZvbnQtc2l6ZTogMjVweDtcbn1cblxuLm5hdmJhci10ZXh0IGEge1xuICBmb250LXNpemU6IDE4cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuI2F1dGgtbW9kYWwge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE0LCAxNCwgMTQsIDAuOTMyKTtcbiAgY29sb3I6IGFsaWNlYmx1ZTtcbiAgZm9udC1zaXplOiBsYXJnZTtcbiAgZm9udC13ZWlnaHQ6IDEwMDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBwYWRkaW5nOiA0MHB4IDYwcHggNDBweCA2MHB4O1xuICBib3JkZXItcmFkaXVzOiAyMHB4O1xuICB3aWR0aDogNDAwcHg7XG4gIGFuaW1hdGlvbi1uYW1lOiBtb3ZlLXVwO1xuICBhbmltYXRpb24tZHVyYXRpb246IDAuOHM7XG4gIHRvcDogMTA1cHg7XG59XG5cbkBrZXlmcmFtZXMgbW92ZS11cCB7XG4gIGZyb20ge1xuICAgIHRvcDogMTEwdmg7XG4gIH1cbiAgdG8ge1xuICAgIHRvcDogMTA1cHg7XG4gIH1cbn1cbiNhdXRoLW1vZGFsIGlucHV0IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNCwgMTQsIDE0LCAwLjg3KTtcbiAgY29sb3I6IGFsaWNlYmx1ZTtcbn1cblxuI2F1dGgtbW9kYWwgc3BhbiB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNDcpO1xuICBjb2xvcjogYWxpY2VibHVlO1xufVxuXG4jc3RyYXZhLWJ0biB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmYzUyMDA7XG4gIGJvcmRlci1jb2xvcjogI2ZjNTIwMDtcbn1cblxuLmxvZ2luLWJ0biB7XG4gIHdpZHRoOiAyNDBweDtcbiAgY29sb3I6IGFsaWNlYmx1ZTtcbiAgcGFkZGluZzogNXB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbiNhdXRoLW1vZGFsIGltZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogM3B4O1xuICB0b3A6IDNweDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgd2lkdGg6IDMwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbn1cblxuLmJ0bi1saWdodCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmZjOTtcbn1cblxuLm1vZGFsLWNvbnRlbnQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE0LCAxNCwgMTQsIDApO1xufSJdfQ== */"]
     });
     /*@__PURE__*/
 
