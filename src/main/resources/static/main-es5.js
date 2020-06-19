@@ -174,19 +174,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _services_strava_oauth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./services/strava-oauth.service */
+    "./src/app/services/strava-oauth.service.ts");
+    /* harmony import */
+
+
+    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @ng-bootstrap/ng-bootstrap */
     "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
@@ -257,11 +263,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AppComponent =
     /*#__PURE__*/
     function () {
-      function AppComponent(authService, router) {
+      function AppComponent(authService, router, stravaOauth) {
         _classCallCheck(this, AppComponent);
 
         this.authService = authService;
         this.router = router;
+        this.stravaOauth = stravaOauth;
         this.errors = [];
         this.userData = {
           email: "",
@@ -277,6 +284,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.userData.email = credentials[0];
           this.userData.password = credentials[1];
           this.userData.rememberMe = true;
+        }
+
+        var location = window.location.href;
+
+        if (location.includes("code=")) {
+          this.stravaTokenExchange();
         }
       }
 
@@ -299,10 +312,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "loginUser",
-        value: function loginUser() {
+        value: function loginUser(user) {
           var _this2 = this;
 
-          this.authService.loginUser(this.userData).subscribe(function (res) {
+          if (user == undefined) {
+            user = this.userData;
+          }
+
+          this.authService.loginUser(user).subscribe(function (res) {
             console.log(res);
 
             _this2.closeModals();
@@ -352,17 +369,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (type == "strava") {
-            alert("not yet implemented!");
+            this.stravaOauth.startOauthFlow();
             return;
           }
 
           if (type == "email") {
+            this.validateForm();
+
+            if (this.errors.length > 0) {
+              return;
+            }
+
             if (this.userData.rememberMe) {
               var credentials = this.userData.email + ":" + this.userData.password;
               localStorage.setItem('credentials', btoa(credentials));
             }
 
-            this.loginUser();
+            this.loginUser(this.userData);
             return;
           }
         }
@@ -375,7 +398,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (type == "strava") {
+            this.stravaOauth.startOauthFlow();
             alert("not yet implemented!");
+            return;
+          }
+
+          this.validateForm();
+
+          if (this.errors.length > 0) {
             return;
           }
 
@@ -384,13 +414,66 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return;
           }
         }
+      }, {
+        key: "validateForm",
+        value: function validateForm() {
+          var _this3 = this;
+
+          this.errors = [];
+
+          if (this.userData.email == undefined) {
+            this.errors.push("the email address is required!");
+          } else if (!this.userData.email.includes("@")) {
+            this.errors.push("the email address is not valid!");
+          }
+
+          if (this.userData.password == undefined) {
+            this.errors.push("the password field is requred!");
+          } else {
+            var weakPassword = true;
+            "~!@#$%^&*_+}{?><".split("").forEach(function (chr) {
+              if (_this3.userData.password.includes(chr)) {
+                weakPassword = false;
+              }
+            });
+
+            if (weakPassword) {
+              this.errors.push("the password is too week include at least one of the special characters: ~, !, @, #, $, %, ^, &, *, _, +, }, {, ?, >, <");
+            }
+
+            if (this.userData.password.length < 6) {
+              this.errors.push("the password is too short, it must have at least 6 characters");
+            }
+          }
+        }
+      }, {
+        key: "stravaTokenExchange",
+        value: function stravaTokenExchange() {
+          var _this4 = this;
+
+          this.stravaOauth.onOauthRedirect().subscribe(function (res) {
+            localStorage.setItem("stravaAccess", res.access_token);
+            localStorage.setItem("stravaRefresh", res.refresh_token);
+            var name = res.athlete.username;
+            var email = name + "@strava";
+            var password = res.access_token;
+
+            _this4.loginUser({
+              username: name,
+              email: email,
+              password: password
+            });
+          }, function (err) {
+            return console.log(err);
+          });
+        }
       }]);
 
       return AppComponent;
     }();
 
     AppComponent.ɵfac = function AppComponent_Factory(t) {
-      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
+      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_strava_oauth_service__WEBPACK_IMPORTED_MODULE_3__["StravaOauthService"]));
     };
 
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -748,7 +831,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.errors);
         }
       },
-      directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbNavbar"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["CheckboxControlValueAccessor"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]],
+      directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbNavbar"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["CheckboxControlValueAccessor"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]],
       styles: [".top[_ngcontent-%COMP%] {\n  z-index: 100;\n}\n\n.transparent-light[_ngcontent-%COMP%] {\n  background-color: rgba(202, 202, 202, 0.137);\n}\n\n.navbar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-size: 25px;\n}\n\n.navbar-text[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-size: 18px;\n  cursor: pointer;\n}\n\n.auth-modal[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  margin-left: auto;\n  margin-right: auto;\n  background-color: rgba(14, 14, 14, 0.932);\n  color: aliceblue;\n  font-size: large;\n  font-weight: 100;\n  text-align: center;\n  padding: 40px 60px 40px 60px;\n  border-radius: 20px;\n  width: 400px;\n  -webkit-animation-name: move-up;\n          animation-name: move-up;\n  -webkit-animation-duration: 0.8s;\n          animation-duration: 0.8s;\n  top: 120px;\n  z-index: 30;\n  display: none;\n}\n\n@-webkit-keyframes move-up {\n  from {\n    top: 110vh;\n  }\n  to {\n    top: 120px;\n  }\n}\n\n@keyframes move-up {\n  from {\n    top: 110vh;\n  }\n  to {\n    top: 120px;\n  }\n}\n\n.auth-modal[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  background-color: rgba(14, 14, 14, 0.87);\n  color: aliceblue;\n}\n\n.auth-modal[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  background-color: rgba(255, 255, 255, 0.247);\n  color: aliceblue;\n}\n\n#strava-btn[_ngcontent-%COMP%] {\n  background-color: #fc5200;\n  border-color: #fc5200;\n}\n\n.login-btn[_ngcontent-%COMP%] {\n  width: 240px;\n  color: aliceblue;\n  padding: 5px;\n  position: relative;\n}\n\n.auth-modal[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 3px;\n  top: 3px;\n  vertical-align: middle;\n  width: 30px;\n  border-radius: 4px;\n}\n\n.btn-light[_ngcontent-%COMP%] {\n  background-color: #ffffffc9;\n}\n\n.modal-content[_ngcontent-%COMP%] {\n  background-color: rgba(14, 14, 14, 0);\n}\n\n@media (max-width: 400px) {\n  .auth-modal[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .login-btn[_ngcontent-%COMP%] {\n    width: 150px;\n    color: aliceblue;\n    padding: 5px;\n    position: relative;\n  }\n}\n\n.text-red[_ngcontent-%COMP%] {\n  color: #8b0e0e;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvRDpcXHdvcmtzcGFjZXNcXGFuZ3VsYXJcXGxpY2VudGEtY2xpZW50LWZyb250ZW5kL3NyY1xcYXBwXFxhcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7QUNDSjs7QURFQTtFQUNJLDRDQUFBO0FDQ0o7O0FERUE7RUFDSSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxlQUFBO0VBQ0EsZUFBQTtBQ0NKOztBREVBO0VBQ0ksa0JBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSx5Q0FBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsNEJBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSwrQkFBQTtVQUFBLHVCQUFBO0VBQ0EsZ0NBQUE7VUFBQSx3QkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsYUFBQTtBQ0NKOztBREdBO0VBQ0k7SUFBTyxVQUFBO0VDQ1Q7RURBRTtJQUFLLFVBQUE7RUNHUDtBQUNGOztBRE5BO0VBQ0k7SUFBTyxVQUFBO0VDQ1Q7RURBRTtJQUFLLFVBQUE7RUNHUDtBQUNGOztBRERBO0VBQ0ksd0NBQUE7RUFDQSxnQkFBQTtBQ0dKOztBREFBO0VBQ0ksNENBQUE7RUFDQSxnQkFBQTtBQ0dKOztBREFBO0VBQ0kseUJBQUE7RUFDQSxxQkFBQTtBQ0dKOztBREFBO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FDR0o7O0FEQUE7RUFDSSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxRQUFBO0VBQ0Esc0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNHSjs7QURBQTtFQUNJLDJCQUFBO0FDR0o7O0FEQUE7RUFDSSxxQ0FBQTtBQ0dKOztBRENBO0VBQ0k7SUFDSSxXQUFBO0VDRU47O0VEQ0U7SUFDSSxZQUFBO0lBQ0EsZ0JBQUE7SUFDQSxZQUFBO0lBQ0Esa0JBQUE7RUNFTjtBQUNGOztBRENBO0VBQ0ksY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRvcCB7XHJcbiAgICB6LWluZGV4OiAxMDA7XHJcbn1cclxuXHJcbi50cmFuc3BhcmVudC1saWdodHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjAyLCAyMDIsIDIwMiwgMC4xMzcpO1xyXG59XHJcblxyXG4ubmF2YmFyIGEge1xyXG4gICAgZm9udC1zaXplOiAyNXB4O1xyXG59XHJcblxyXG4ubmF2YmFyLXRleHQgYSB7XHJcbiAgICBmb250LXNpemU6IDE4cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIFxyXG4uYXV0aC1tb2RhbHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsgXHJcbiAgICBsZWZ0OiAwOyBcclxuICAgIHJpZ2h0OiAwO1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87IFxyXG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNCwgMTQsIDE0LCAwLjkzMik7XHJcbiAgICBjb2xvcjogYWxpY2VibHVlO1xyXG4gICAgZm9udC1zaXplOiBsYXJnZTtcclxuICAgIGZvbnQtd2VpZ2h0OiAxMDA7IFxyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgcGFkZGluZzogNDBweCA2MHB4IDQwcHggNjBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbiAgICB3aWR0aDogNDAwcHg7XHJcbiAgICBhbmltYXRpb24tbmFtZTogbW92ZS11cDtcclxuICAgIGFuaW1hdGlvbi1kdXJhdGlvbjogLjhzOyBcclxuICAgIHRvcDogMTIwcHg7XHJcbiAgICB6LWluZGV4OiAzMDtcclxuICAgIGRpc3BsYXk6bm9uZTtcclxufVxyXG5cclxuXHJcbkBrZXlmcmFtZXMgbW92ZS11cCB7XHJcbiAgICBmcm9tIHsgdG9wOiAxMTB2aDsgfVxyXG4gICAgdG8geyB0b3A6IDEyMHB4OyB9XHJcbn1cclxuIFxyXG4uYXV0aC1tb2RhbCBpbnB1dHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMC44Nyk7XHJcbiAgICBjb2xvcjogYWxpY2VibHVlO1xyXG59XHJcblxyXG4uYXV0aC1tb2RhbCBzcGFuIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNDcpO1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcclxufVxyXG5cclxuI3N0cmF2YS1idG57XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmM1MjAwO1xyXG4gICAgYm9yZGVyLWNvbG9yOiAjZmM1MjAwO1xyXG59XHJcblxyXG4ubG9naW4tYnRue1xyXG4gICAgd2lkdGg6IDI0MHB4O1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLmF1dGgtbW9kYWwgaW1nIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDNweDtcclxuICAgIHRvcDogM3B4O1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICAgIHdpZHRoOjMwcHg7IFxyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4OyBcclxufVxyXG5cclxuLmJ0bi1saWdodHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmZjOVxyXG59XHJcblxyXG4ubW9kYWwtY29udGVudHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMClcclxufVxyXG5cclxuXHJcbkBtZWRpYSAobWF4LXdpZHRoOjQwMHB4KSB7XHJcbiAgICAuYXV0aC1tb2RhbCB7IFxyXG4gICAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgfVxyXG5cclxuICAgIC5sb2dpbi1idG57XHJcbiAgICAgICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgICAgIGNvbG9yOiBhbGljZWJsdWU7XHJcbiAgICAgICAgcGFkZGluZzogNXB4O1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIH1cclxufVxyXG5cclxuLnRleHQtcmVke1xyXG4gICAgY29sb3I6cmdiKDEzOSwgMTQsIDE0KTtcclxufSIsIi50b3Age1xuICB6LWluZGV4OiAxMDA7XG59XG5cbi50cmFuc3BhcmVudC1saWdodCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjAyLCAyMDIsIDIwMiwgMC4xMzcpO1xufVxuXG4ubmF2YmFyIGEge1xuICBmb250LXNpemU6IDI1cHg7XG59XG5cbi5uYXZiYXItdGV4dCBhIHtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5hdXRoLW1vZGFsIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxNCwgMTQsIDE0LCAwLjkzMik7XG4gIGNvbG9yOiBhbGljZWJsdWU7XG4gIGZvbnQtc2l6ZTogbGFyZ2U7XG4gIGZvbnQtd2VpZ2h0OiAxMDA7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcGFkZGluZzogNDBweCA2MHB4IDQwcHggNjBweDtcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcbiAgd2lkdGg6IDQwMHB4O1xuICBhbmltYXRpb24tbmFtZTogbW92ZS11cDtcbiAgYW5pbWF0aW9uLWR1cmF0aW9uOiAwLjhzO1xuICB0b3A6IDEyMHB4O1xuICB6LWluZGV4OiAzMDtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuQGtleWZyYW1lcyBtb3ZlLXVwIHtcbiAgZnJvbSB7XG4gICAgdG9wOiAxMTB2aDtcbiAgfVxuICB0byB7XG4gICAgdG9wOiAxMjBweDtcbiAgfVxufVxuLmF1dGgtbW9kYWwgaW5wdXQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE0LCAxNCwgMTQsIDAuODcpO1xuICBjb2xvcjogYWxpY2VibHVlO1xufVxuXG4uYXV0aC1tb2RhbCBzcGFuIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjI0Nyk7XG4gIGNvbG9yOiBhbGljZWJsdWU7XG59XG5cbiNzdHJhdmEtYnRuIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZjNTIwMDtcbiAgYm9yZGVyLWNvbG9yOiAjZmM1MjAwO1xufVxuXG4ubG9naW4tYnRuIHtcbiAgd2lkdGg6IDI0MHB4O1xuICBjb2xvcjogYWxpY2VibHVlO1xuICBwYWRkaW5nOiA1cHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLmF1dGgtbW9kYWwgaW1nIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAzcHg7XG4gIHRvcDogM3B4O1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICB3aWR0aDogMzBweDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuXG4uYnRuLWxpZ2h0IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZmM5O1xufVxuXG4ubW9kYWwtY29udGVudCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTQsIDE0LCAxNCwgMCk7XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiA0MDBweCkge1xuICAuYXV0aC1tb2RhbCB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cblxuICAubG9naW4tYnRuIHtcbiAgICB3aWR0aDogMTUwcHg7XG4gICAgY29sb3I6IGFsaWNlYmx1ZTtcbiAgICBwYWRkaW5nOiA1cHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB9XG59XG4udGV4dC1yZWQge1xuICBjb2xvcjogIzhiMGUwZTtcbn0iXX0= */"]
     });
     /*@__PURE__*/
@@ -766,6 +849,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _services_strava_oauth_service__WEBPACK_IMPORTED_MODULE_3__["StravaOauthService"]
         }];
       }, null);
     })();
@@ -1267,14 +1352,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AuthService =
     /*#__PURE__*/
     function () {
+      // private _loginUrl = "auth/login";
       function AuthService(http) {
         _classCallCheck(this, AuthService);
 
-        this.http = http; // private _registerUrl = "http://localhost:8080/auth/signup";
+        this.http = http;
+        this._registerUrl = "http://localhost:8080/auth/signup"; // private _registerUrl = "/auth/signup";
 
-        this._registerUrl = "/signup"; // private _loginUrl = "http://localhost:8080/auth/login";
-
-        this._loginUrl = "/login";
+        this._loginUrl = "http://localhost:8080/auth/login";
       }
 
       _createClass(AuthService, [{
@@ -1315,6 +1400,95 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     (function () {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AuthService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/services/strava-oauth.service.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/services/strava-oauth.service.ts ***!
+    \**************************************************/
+
+  /*! exports provided: StravaOauthService */
+
+  /***/
+  function srcAppServicesStravaOauthServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "StravaOauthService", function () {
+      return StravaOauthService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+    var StravaOauthService =
+    /*#__PURE__*/
+    function () {
+      function StravaOauthService(http) {
+        _classCallCheck(this, StravaOauthService);
+
+        this.http = http;
+        this.initialRedirectUrl = "http://localhost:4200/login";
+        this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all" + "&redirect_uri=" + this.initialRedirectUrl;
+        this.tokenExchangeUrl = "https://www.strava.com/oauth/token?client_id=47492&client_secret=e3fabe846fbdfb4eb00d6a64f6040b10752fae22&grant_type=authorization_code";
+      }
+
+      _createClass(StravaOauthService, [{
+        key: "startOauthFlow",
+        value: function startOauthFlow() {
+          window.location.href = this.oauthUrl;
+        }
+      }, {
+        key: "onOauthRedirect",
+        value: function onOauthRedirect() {
+          var keyValuePair = window.location.href.split("?")[1].split("&")[1];
+          var code = keyValuePair.split("=")[1];
+          this.tokenExchangeUrl += "&code=" + code;
+          return this.http.post(this.tokenExchangeUrl, {});
+        }
+      }]);
+
+      return StravaOauthService;
+    }();
+
+    StravaOauthService.ɵfac = function StravaOauthService_Factory(t) {
+      return new (t || StravaOauthService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
+    };
+
+    StravaOauthService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: StravaOauthService,
+      factory: StravaOauthService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](StravaOauthService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
           providedIn: 'root'

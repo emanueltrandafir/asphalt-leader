@@ -19,7 +19,7 @@ public class UserService {
 	private Md5HashService hashServce;
 	private UserUtils userUtils;
 	private JwtService jwtService;
-
+	private StravaOauthService stravaOauthService;
 	
 	@Autowired
 	public UserService(UserRepository userRepo, Md5HashService hashServce, UserUtils userUtils, JwtService jwtService) {
@@ -29,9 +29,18 @@ public class UserService {
 		this.jwtService = jwtService;
 	}
 
-	
+
+	@Autowired
+	protected void setStravaOauthService(StravaOauthService stravaOauthService) {
+		this.stravaOauthService = stravaOauthService;
+	}
+
 
 	public User register(User user) {
+		
+		if(user.getEmail().contains("@strava")) {
+			return stravaOauthService.registerUser(user);
+		}
 		
 		List<String> issues = userUtils.validateUser(user);
 		
@@ -59,8 +68,12 @@ public class UserService {
 	
 	public String login(User userDto) {
 		
-		Optional<User> user = userRepo.findById(userDto.getEmail());
+		if(userDto.getEmail().contains("@strava")) {
+			return stravaOauthService.loginUser(userDto);
+		}
 		
+		Optional<User> user = userRepo.findById(userDto.getEmail());
+
 		if(!user.isPresent()) {
 			throw new NoSuchElementException("the user was not found!");
 		}
