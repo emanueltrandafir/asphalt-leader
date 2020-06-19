@@ -11,7 +11,7 @@ import com.asphalt_leader.persistance.model.User;
 public class UserUtilsTest {
 
 	
-//	private final User userWithWrongEmail = new User("user", "pass#123", )
+	private final UserUtils userUtils = new UserUtils();
 
 	private final String shortPassword = "p#1";
 	private final String shortPasswordWithoutNumber = "pass#";
@@ -25,7 +25,7 @@ public class UserUtilsTest {
 		User user = new User("username", okPassword, badEmail);
 		
 		//when
-		List<String> issues = UserUtils.validateUser(user);
+		List<String> issues = userUtils.validateUser(user);
 		
 		//then
 		assertEquals(issues.size(), 1);
@@ -37,7 +37,7 @@ public class UserUtilsTest {
 		User user = new User("username", shortPassword, badEmail);
 		
 		//when
-		List<String> issues = UserUtils.validateUser(user);
+		List<String> issues = userUtils.validateUser(user);
 		
 		//then
 		assertEquals(issues.size(), 2);
@@ -49,7 +49,7 @@ public class UserUtilsTest {
 		User user = new User("username", shortPasswordWithoutNumber, badEmail);
 		
 		//when
-		List<String> issues = UserUtils.validateUser(user);
+		List<String> issues = userUtils.validateUser(user);
 		
 		//then
 		assertEquals(issues.size(), 3);
@@ -61,7 +61,7 @@ public class UserUtilsTest {
 		User user = new User("username", okPassword, okEmail);
 		
 		//when
-		List<String> issues = UserUtils.validateUser(user);
+		List<String> issues = userUtils.validateUser(user);
 		
 		//then
 		assertEquals(issues.size(), 0);

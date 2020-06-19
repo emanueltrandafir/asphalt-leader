@@ -11,19 +11,16 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name = "user_entity")
 @Table(name = "user_entity")
 public class User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 
 	private String username;
 	
 	@NotNull
 	private String password;
 	
+	@Id
 	@NotNull
 	private String email;
 
@@ -35,13 +32,6 @@ public class User {
 		this.email = email;
 	}
 
-	public User(Integer id, String username, String password, String email) {
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-	}
-	
 	public void addDefaultUsernameIfMissing() {
 		if (username == null || username.isEmpty()) {
 			username = email.split("@")[0];

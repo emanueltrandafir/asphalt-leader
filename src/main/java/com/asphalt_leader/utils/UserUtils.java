@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.asphalt_leader.persistance.model.User;
 
+@Component
 public class UserUtils {
 
 	public static final int PASSWROD_MIN_LENGTH = 6;
@@ -15,7 +18,7 @@ public class UserUtils {
 
 	private static final String[] PASSWORD_REQUIRED_NUMBERS = {"1","2","3","4","5","6","7","8","9","0"};
 	
-	public static List<String> validateUser(User user) {
+	public List<String> validateUser(User user) {
 		List<String> issues = new ArrayList<>();
 
 		issues.addAll(validateEmail(user.getEmail()));
@@ -26,7 +29,7 @@ public class UserUtils {
 	
 	
 	
-	private static List<String> validateEmail(String email) {
+	private List<String> validateEmail(String email) {
 		List<String> issues = new ArrayList<>();
 		
 		if(!email.contains("@")) {
@@ -36,7 +39,7 @@ public class UserUtils {
 		return issues;
 	}
 	
-	private static List<String> validatePassword(String password){
+	private List<String> validatePassword(String password){
 		List<String> issues = new ArrayList<>();
 		
 		if(password.length() < PASSWROD_MIN_LENGTH) {
@@ -57,7 +60,7 @@ public class UserUtils {
 		return issues ;
 	}
 
-	private static String specialCharctersJoinedByComma() {
+	private String specialCharctersJoinedByComma() {
 		return String.join(" , " , Arrays.asList( PASSWORD_REQUIRED_CHARACTERS ));
 	}
 	
