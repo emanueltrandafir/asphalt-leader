@@ -387,31 +387,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.title = 'asphalt-leader';
         this.showSingupModal = false;
         this.showLoginModal = false;
-      } // openLogin(content) {
-
+      }
 
       _createClass(AppComponent, [{
         key: "openLogin",
         value: function openLogin() {
           var _this = this;
 
-          console.log("opening login");
+          this.updateBodyScroll(false);
           setTimeout(function () {
             _this.showSingupModal = false;
             _this.showLoginModal = true;
-          }, 100); // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
-        } // openSingup(signup){
-
+          }, 50);
+          setTimeout(function () {
+            _this.updateBodyScroll(true);
+          }, 100);
+        }
       }, {
         key: "openSingup",
         value: function openSingup() {
           var _this2 = this;
 
-          console.log("opening signup");
+          this.updateBodyScroll(false);
           setTimeout(function () {
             _this2.showLoginModal = false;
             _this2.showSingupModal = true;
-          }, 100); // this.modalService.open(signup, {ariaLabelledBy: 'modal-basic-title'});
+          }, 50);
+          setTimeout(function () {
+            _this2.updateBodyScroll(true);
+          }, 100);
+        }
+      }, {
+        key: "updateBodyScroll",
+        value: function updateBodyScroll(enable) {
+          document.body.style.overflow = enable ? "scroll" : "hidden";
         }
       }, {
         key: "closeModals",

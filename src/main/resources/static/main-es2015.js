@@ -201,23 +201,28 @@ class AppComponent {
         this.showSingupModal = false;
         this.showLoginModal = false;
     }
-    // openLogin(content) {
     openLogin() {
-        console.log("opening login");
+        this.updateBodyScroll(false);
         setTimeout(() => {
             this.showSingupModal = false;
             this.showLoginModal = true;
+        }, 50);
+        setTimeout(() => {
+            this.updateBodyScroll(true);
         }, 100);
-        // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
     }
-    // openSingup(signup){
     openSingup() {
-        console.log("opening signup");
+        this.updateBodyScroll(false);
         setTimeout(() => {
             this.showLoginModal = false;
             this.showSingupModal = true;
+        }, 50);
+        setTimeout(() => {
+            this.updateBodyScroll(true);
         }, 100);
-        // this.modalService.open(signup, {ariaLabelledBy: 'modal-basic-title'});
+    }
+    updateBodyScroll(enable) {
+        document.body.style.overflow = enable ? "scroll" : "hidden";
     }
     closeModals() {
         console.log("closing");
