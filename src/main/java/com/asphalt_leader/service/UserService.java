@@ -48,8 +48,9 @@ public class UserService {
 			throw new IllegalArgumentException("[ \"this email address is already used!\" ]");
 		}
 		
+		String unhashedPass = user.getPassword();
 		user.addDefaultUsernameIfMissing();
-		user.setPassword( hashServce.hashString(user.getPassword()) );
+		user.setPassword( hashServce.hashString( unhashedPass ));
 		
 		return userRepo.save(user);
 	}
@@ -69,7 +70,7 @@ public class UserService {
 			throw new IllegalArgumentException("the password is wrong!");
 		}
 		
-		return jwtService.provideAccessToken(user.get());
+		return "{ \"token\" : \"" + jwtService.provideAccessToken(user.get()) + "\" }";
 	}
 	
 	

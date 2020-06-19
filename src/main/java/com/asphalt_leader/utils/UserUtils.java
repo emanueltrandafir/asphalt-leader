@@ -61,7 +61,7 @@ public class UserUtils {
 	}
 
 	private String specialCharctersJoinedByComma() {
-		return String.join(" , " , Arrays.asList( PASSWORD_REQUIRED_CHARACTERS ));
+		return String.join(", " , Arrays.asList( PASSWORD_REQUIRED_CHARACTERS ));
 	}
 	
 }

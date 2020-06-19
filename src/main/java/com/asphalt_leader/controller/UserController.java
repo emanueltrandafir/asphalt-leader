@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.jboss.logging.Logger.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +20,15 @@ import com.asphalt_leader.persistance.model.User;
 import com.asphalt_leader.persistance.repository.UserRepository;
 import com.asphalt_leader.service.UserService;
 
+import java.util.logging.Logger; 
+
+
 @RestController
 @RequestMapping("/auth")
 public class UserController {
 
+	private final static Logger LOGGER = Logger.getLogger(UserController.class.getName());
+	
 	@Autowired
 	private UserService userService;
 	
@@ -32,11 +38,18 @@ public class UserController {
 	@CrossOrigin(origins = "*")
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser( @RequestBody User user ) {
+		
+		LOGGER.info("UserController.registerUser(): " + user.getEmail());
+		
 		try {
 			return new ResponseEntity<>( userService.register(user) , HttpStatus.CREATED );
 		} catch ( IllegalArgumentException e ) {
+			
+			LOGGER.severe("UserController.registerUser(): bad request : " + e.getMessage() + " ; " + user.getEmail()); 
 			return new ResponseEntity<>( e.getMessage() , HttpStatus.BAD_REQUEST );
 		} catch ( Exception e ) {
+			
+			LOGGER.severe("UserController.registerUser(): server error : " + e.getMessage() + " ; " + user.getEmail()); 
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -44,11 +57,18 @@ public class UserController {
 	@CrossOrigin(origins = "*")
 	@PostMapping("/login")
 	public ResponseEntity<?> loginUser( @RequestBody User user ) {
+
+		LOGGER.info("UserController.loginUser(): " + user.getEmail());
+		
 		try {
 			return new ResponseEntity<>( userService.login(user) , HttpStatus.CREATED );
-		} catch ( NoSuchElementException e ) {
+		} catch ( NoSuchElementException | IllegalArgumentException e  ) {
+
+			LOGGER.severe("UserController.loginUser(): login failed : " + e.getMessage() + " ; " + user.getEmail()); 
 			return new ResponseEntity<>( e.getMessage() , HttpStatus.NOT_FOUND );
 		} catch ( Exception e ) {
+
+			LOGGER.severe("UserController.loginUser(): server error : " + e.getMessage() + " ; " + user.getEmail()); 
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
