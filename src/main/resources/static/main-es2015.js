@@ -710,12 +710,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AuthService {
-    // private _loginUrl = "auth/login";
     constructor(http) {
         this.http = http;
-        this._registerUrl = "http://localhost:8080/auth/signup";
-        // private _registerUrl = "/auth/signup";
-        this._loginUrl = "http://localhost:8080/auth/login";
+        // private _registerUrl = "http://localhost:8080/auth/signup";
+        this._registerUrl = "/auth/signup";
+        // private _loginUrl = "http://localhost:8080/auth/login";
+        this._loginUrl = "auth/login";
     }
     registerUser(user) {
         return this.http.post(this._registerUrl, user);
@@ -760,7 +760,7 @@ __webpack_require__.r(__webpack_exports__);
 class StravaOauthService {
     constructor(http) {
         this.http = http;
-        this.initialRedirectUrl = "http://localhost:4200/login";
+        this.initialRedirectUrl = "/auth/login";
         this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all"
             + "&redirect_uri=" + this.initialRedirectUrl;
         this.tokenExchangeUrl = "https://www.strava.com/oauth/token?client_id=47492&client_secret=e3fabe846fbdfb4eb00d6a64f6040b10752fae22&grant_type=authorization_code";
