@@ -9,11 +9,9 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
-@RequiredArgsConstructor
 @Table(name = "user_entity")
 public class User {
 
@@ -21,10 +19,33 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@NotNull
 	private String username;
 	
+	@NotNull
 	private String password;
+	
+	@NotNull
 	private String email;
+
+	public User() {};
+	
+	public User(String username, String password, String email) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+
+	public User(Integer id, String username, String password, String email) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+	
+	public void addDefaultUsernameIfMissing() {
+		if (username == null || username.isEmpty()) {
+			username = email.split("@")[0];
+		}
+	}
 	
 }
