@@ -780,7 +780,8 @@ __webpack_require__.r(__webpack_exports__);
 class StravaOauthService {
     constructor(http) {
         this.http = http;
-        this.initialRedirectUrl = "http://localhost:4200/login";
+        this.initialRedirectUrl = "/login";
+        // private initialRedirectUrl = "http://localhost:4200/login"
         this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all";
         this.tokenExchangeUrl = "https://www.strava.com/oauth/token?client_id=47492&client_secret=e3fabe846fbdfb4eb00d6a64f6040b10752fae22&grant_type=authorization_code";
     }
