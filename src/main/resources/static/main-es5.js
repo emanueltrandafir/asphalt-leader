@@ -294,11 +294,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(AppComponent, [{
+        key: "registerUserData",
+        value: function registerUserData() {
+          this.registerUser(this.userData);
+        }
+      }, {
         key: "registerUser",
-        value: function registerUser() {
+        value: function registerUser(user) {
           var _this = this;
 
-          this.authService.registerUser(this.userData).subscribe(function (res) {
+          this.authService.registerUser(user).subscribe(function (res) {
             console.log(res);
 
             _this.closeModals();
@@ -307,7 +312,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             _this.errors = [];
           }, function (err) {
-            return _this.errors = err.error;
+            _this.openSingup();
+
+            _this.errors = err.error;
           });
         }
       }, {
@@ -320,8 +327,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           this.authService.loginUser(user).subscribe(function (res) {
-            console.log(res);
-
             _this2.closeModals();
 
             localStorage.setItem('token', res.token);
@@ -330,7 +335,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             _this2.router.navigate(['/dashboard']);
           }, function (err) {
-            return _this2.errors = [err.error];
+            _this2.openLogin();
+
+            _this2.errors = [err.error];
           });
         }
       }, {
@@ -369,6 +376,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (type == "strava") {
+            localStorage.setItem('logging_in', 'true');
             this.stravaOauth.startOauthFlow();
             return;
           }
@@ -398,8 +406,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (type == "strava") {
+            localStorage.setItem('logging_in', 'false');
             this.stravaOauth.startOauthFlow();
-            alert("not yet implemented!");
             return;
           }
 
@@ -410,7 +418,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (type == "email") {
-            this.registerUser();
+            this.registerUserData();
             return;
           }
         }
@@ -457,14 +465,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var name = res.athlete.username;
             var email = name + "@strava";
             var password = res.access_token;
-
-            _this4.loginUser({
+            var loggingIn = localStorage.getItem("logging_in") == 'true';
+            localStorage.removeItem("logging_in");
+            var user = {
               username: name,
               email: email,
               password: password
-            });
+            };
+
+            if (loggingIn) {
+              _this4.loginUser(user);
+            } else {
+              _this4.registerUser(user);
+            }
           }, function (err) {
-            return console.log(err);
+            console.log("ERROR!!", err);
+            localStorage.removeItem("logging_in");
           });
         }
       }]);
@@ -1359,7 +1375,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this._registerUrl = "/auth/signup"; // private _loginUrl = "http://localhost:8080/auth/login";
 
-        this._loginUrl = "auth/login";
+        this._loginUrl = "/auth/login";
       }
 
       _createClass(AuthService, [{
@@ -1453,15 +1469,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, StravaOauthService);
 
         this.http = http;
-        this.initialRedirectUrl = "/auth/login";
-        this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all" + "&redirect_uri=" + this.initialRedirectUrl;
+        this.initialRedirectUrl = "http://localhost:4200/login";
+        this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all";
         this.tokenExchangeUrl = "https://www.strava.com/oauth/token?client_id=47492&client_secret=e3fabe846fbdfb4eb00d6a64f6040b10752fae22&grant_type=authorization_code";
       }
 
       _createClass(StravaOauthService, [{
         key: "startOauthFlow",
         value: function startOauthFlow() {
-          window.location.href = this.oauthUrl;
+          window.location.href = this.getOauthUrl();
+        }
+      }, {
+        key: "getOauthUrl",
+        value: function getOauthUrl() {
+          return this.oauthUrl + "&redirect_uri=" + this.initialRedirectUrl;
         }
       }, {
         key: "onOauthRedirect",

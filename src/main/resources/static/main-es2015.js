@@ -157,14 +157,20 @@ class AppComponent {
             this.stravaTokenExchange();
         }
     }
-    registerUser() {
-        this.authService.registerUser(this.userData)
+    registerUserData() {
+        this.registerUser(this.userData);
+    }
+    registerUser(user) {
+        this.authService.registerUser(user)
             .subscribe(res => {
             console.log(res);
             this.closeModals();
             this.openLogin();
             this.errors = [];
-        }, err => this.errors = err.error);
+        }, err => {
+            this.openSingup();
+            this.errors = err.error;
+        });
     }
     loginUser(user) {
         if (user == undefined) {
@@ -172,13 +178,15 @@ class AppComponent {
         }
         this.authService.loginUser(user)
             .subscribe(res => {
-            console.log(res);
             this.closeModals();
             localStorage.setItem('token', res.token);
             this.isLoggedIn = true;
             this.errors = [];
             this.router.navigate(['/dashboard']);
-        }, err => this.errors = [err.error]);
+        }, err => {
+            this.openLogin();
+            this.errors = [err.error];
+        });
     }
     openLogin() {
         setTimeout(() => {
@@ -206,6 +214,7 @@ class AppComponent {
             return;
         }
         if (type == "strava") {
+            localStorage.setItem('logging_in', 'true');
             this.stravaOauth.startOauthFlow();
             return;
         }
@@ -228,8 +237,8 @@ class AppComponent {
             return;
         }
         if (type == "strava") {
+            localStorage.setItem('logging_in', 'false');
             this.stravaOauth.startOauthFlow();
-            alert("not yet implemented!");
             return;
         }
         this.validateForm();
@@ -237,7 +246,7 @@ class AppComponent {
             return;
         }
         if (type == "email") {
-            this.registerUser();
+            this.registerUserData();
             return;
         }
     }
@@ -273,12 +282,23 @@ class AppComponent {
             let name = res.athlete.username;
             let email = name + "@strava";
             let password = res.access_token;
-            this.loginUser({
+            let loggingIn = localStorage.getItem("logging_in") == 'true';
+            localStorage.removeItem("logging_in");
+            let user = {
                 username: name,
                 email: email,
                 password: password
-            });
-        }, err => console.log(err));
+            };
+            if (loggingIn) {
+                this.loginUser(user);
+            }
+            else {
+                this.registerUser(user);
+            }
+        }, err => {
+            console.log("ERROR!!", err);
+            localStorage.removeItem("logging_in");
+        });
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_strava_oauth_service__WEBPACK_IMPORTED_MODULE_3__["StravaOauthService"])); };
@@ -715,7 +735,7 @@ class AuthService {
         // private _registerUrl = "http://localhost:8080/auth/signup";
         this._registerUrl = "/auth/signup";
         // private _loginUrl = "http://localhost:8080/auth/login";
-        this._loginUrl = "auth/login";
+        this._loginUrl = "/auth/login";
     }
     registerUser(user) {
         return this.http.post(this._registerUrl, user);
@@ -760,13 +780,15 @@ __webpack_require__.r(__webpack_exports__);
 class StravaOauthService {
     constructor(http) {
         this.http = http;
-        this.initialRedirectUrl = "/auth/login";
-        this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all"
-            + "&redirect_uri=" + this.initialRedirectUrl;
+        this.initialRedirectUrl = "http://localhost:4200/login";
+        this.oauthUrl = "https://www.strava.com/oauth/authorize?client_id=47492&response_type=code&approval_prompt=force&scope=profile:read_all,activity:write,activity:read_all";
         this.tokenExchangeUrl = "https://www.strava.com/oauth/token?client_id=47492&client_secret=e3fabe846fbdfb4eb00d6a64f6040b10752fae22&grant_type=authorization_code";
     }
     startOauthFlow() {
-        window.location.href = this.oauthUrl;
+        window.location.href = this.getOauthUrl();
+    }
+    getOauthUrl() {
+        return this.oauthUrl + "&redirect_uri=" + this.initialRedirectUrl;
     }
     onOauthRedirect() {
         let keyValuePair = window.location.href.split("?")[1].split("&")[1];
