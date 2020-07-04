@@ -37,14 +37,19 @@ public class JwtService {
 		
 	}
 	
-	public Jws<Claims> parseToken( String token ) {
 
-		byte[] secret = Base64
+	public Jws<Claims> parseToken( String token ){
+		return parseToken( token , SECRET );
+	}
+	
+	public Jws<Claims> parseToken( String token, String secret ) {
+
+		byte[] byteArr = Base64
 			.getDecoder()
-			.decode(SECRET);
+			.decode(secret);
 		
 		return Jwts.parser()
-			.setSigningKey(Keys.hmacShaKeyFor(secret))
+			.setSigningKey(Keys.hmacShaKeyFor(byteArr))
 			.parseClaimsJws(token);
 		
 	}

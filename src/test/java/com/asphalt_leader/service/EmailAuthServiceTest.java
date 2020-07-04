@@ -6,14 +6,11 @@ import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatcher;
 import org.mockito.ArgumentMatchers;
 
 import com.asphalt_leader.persistance.model.User;
@@ -21,7 +18,7 @@ import com.asphalt_leader.persistance.repository.UserRepository;
 import com.asphalt_leader.utils.UserUtils;
 
 
-public class UserServiceTest {
+public class EmailAuthServiceTest {
 
 	private UserService userService;
 	private UserRepository mockUserRepo = mock(UserRepository.class);;
@@ -29,7 +26,7 @@ public class UserServiceTest {
 	private Md5HashService hashService = new Md5HashService(); 
 	
 	private User dummyUser;
-	private int dummyUserId;
+	private EmailAuthService emailAuthServie = new EmailAuthService(hashService, mockUserUtils, mockUserRepo, new JwtService());
 	
 	@BeforeAll
 	private static void beforeAll() {}
@@ -39,11 +36,13 @@ public class UserServiceTest {
 	private void beforeEach() {
 		
 		dummyUser = new User("user", "password#1", "a@b.c");
-		dummyUserId = 1;
 		
 		reset(mockUserRepo, mockUserUtils);
+
+		AuthServiceFactory authFactory = new AuthServiceFactory();
+		authFactory.setEmailAuth(emailAuthServie);
 		
-		userService = new UserService(mockUserRepo, hashService, mockUserUtils, new JwtService());
+		userService = new UserService(authFactory);
 	}
 
 	
@@ -51,6 +50,8 @@ public class UserServiceTest {
 	public void saveShouldHashUsersPassword() {
 
 		//given
+		when(mockUserRepo.findById(dummyUser.getEmail()))
+			.thenReturn( Optional.empty());
 		String unhashedPassword = dummyUser.getPassword();
 		
 		//when
@@ -103,7 +104,7 @@ public class UserServiceTest {
 	}
 	
 	@Test
-	public void loginShouldFindUser() {
+	public void loginShouldFindUser() throws IllegalAccessException {
 		//given
 		User dbUser = new User(dummyUser.getUsername(), hashService.hashString(dummyUser.getPassword()), dummyUser.getEmail());
 		when(mockUserRepo.findById(dummyUser.getEmail()))
@@ -125,7 +126,7 @@ public class UserServiceTest {
 				.thenReturn(Optional.empty());
 		
 		//when
-		assertThrows(NoSuchElementException.class, () -> { userService.login(dummyUser); } );
+		assertThrows(IllegalAccessException.class, () -> { userService.login(dummyUser); } );
 	}
 	
 	@Test
@@ -137,6 +138,6 @@ public class UserServiceTest {
 				.thenReturn(Optional.empty());
 		
 		//when
-		assertThrows(NoSuchElementException.class, () -> { userService.login(dummyUser); } );
+		assertThrows(IllegalAccessException.class, () -> { userService.login(dummyUser); } );
 	}
 }

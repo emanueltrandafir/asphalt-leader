@@ -61,7 +61,10 @@ public class UserController {
 		LOGGER.info("UserController.loginUser(): " + user.getEmail());
 		
 		try {
-			return new ResponseEntity<>( userService.login(user) , HttpStatus.CREATED );
+			String token = userService.login(user);
+			String json = "{ \"token\" : \"" + token + "\" }";
+			
+			return new ResponseEntity<>( json , HttpStatus.CREATED );
 		} catch ( NoSuchElementException | IllegalArgumentException e  ) {
 
 			LOGGER.severe("UserController.loginUser(): login failed : " + e.getMessage() + " ; " + user.getEmail()); 
